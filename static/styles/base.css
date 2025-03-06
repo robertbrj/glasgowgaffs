@@ -13,6 +13,13 @@
     color: white;
     font-size: 48px;
     font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+#home-button:hover {
+    transform: scale(1.1);
+    color: #69329C;
 }
 
 .auth-button {
@@ -21,7 +28,20 @@
     color: white;
     font-size: 24px;
     font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.3s ease;
 }
+
+#pipe {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.auth-button:hover {
+    color: #69329C;
+}
+
 
 body {
     background-color: #69329C;
