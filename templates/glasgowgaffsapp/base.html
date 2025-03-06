@@ -12,13 +12,24 @@
 <body>
     <!-- nav bar -->
     <div id="nav-bar">
-        <button id="home-button">GG</button>
+        <a href="{% url 'glasgowgaffsapp:index' %}" id="home-button">GG</a>
 
         <!-- User area -->
         <div id="user-area">
-            <button class="auth-button">Sign Up</button>
+
+            <!-- If logged in -->
+            {% if user.is_authenticated %}
+            <a class="auth-button">{{ user.username }}</a>
             <span class="auth-button"> | </span>
-            <button class="auth-button">Log In</button>
+            <a class="auth-button" href="{% url 'glasgowgaffsapp:logout' %}">Sign Out</a>
+            {% else %}
+
+            <!-- If not logged in -->
+            <a class="auth-button" href="{% url 'glasgowgaffsapp:register' %}">Sign Up</a>
+            <span class="auth-button"> | </span>
+            <a class="auth-button" href="{% url 'glasgowgaffsapp:login' %}">Log In</a>
+            {% endif %}
+
         </div>
     </div>
     {% block body_block %}
