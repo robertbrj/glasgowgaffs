@@ -5,6 +5,14 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
+
+}
+
+#body-block {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 #home-button {
@@ -32,6 +40,10 @@
     transition: transform 0.3s ease;
 }
 
+.auth-button:hover {
+    cursor: pointer;
+}
+
 #pipe {
     color: white;
     font-size: 24px;
@@ -45,4 +57,10 @@
 
 body {
     background-color: #69329C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

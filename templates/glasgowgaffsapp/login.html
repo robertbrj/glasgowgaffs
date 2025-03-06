@@ -2,15 +2,22 @@
 {% load static %}
 
 {% block body_block %}
+<link rel="stylesheet" href="{% static 'styles/register.css' %}" />
 
-<form id="login_form" method="post" action="{% url 'glasgowgaffsapp:login' %}">
+<form id="user-form" method="post" action="{% url 'glasgowgaffsapp:login' %}">
     {% csrf_token %}
+    <h1 id="title">Log In</h1>
 
-    Username: <input type="text" name="username" value="" size="50" />
-    <br />
-    Password: <input type="password" name="password" value="" size="50" />
-    <br />
-    <input type="submit" value="submit" />
+
+    <div class="form-group">
+        <input placeholder="Username" type="text" name="username" value="" size="50" />
+    </div>
+
+    <div class="form-group">
+        <input placeholder="Password" type="password" name="password" value="" size="50" />
+    </div>
+
+    <input id="register-button" type="submit" value="Log In" />
 
 </form>
 
