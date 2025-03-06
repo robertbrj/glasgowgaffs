@@ -17,7 +17,7 @@ class Event(models.Model):
     description = models.CharField(max_length=200)
     date = models.DateField()
     time = models.TimeField()
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    # location = models.ForeignKey(Location, on_delete=models.CASCADE)
     # attendees = models.ManyToManyField(User, related_name="registered_events", blank=True)
     # created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="created_events")
 
