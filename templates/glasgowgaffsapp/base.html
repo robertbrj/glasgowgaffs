@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
+    <title>Glasgow Gaffs</title>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <div id="nav-bar">
+        <button id="home-button">GG</button>
+
+        <!-- User area -->
+        <div id="user-area">
+            <button class="auth-button">Sign Up</button>
+            <span class="auth-button"> | </span>
+            <button class="auth-button">Log In</button>
+        </div>
+    </div>
+    {% block body_block %}
+    {% endblock %}
+</body>
+
+</html>

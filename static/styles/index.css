@@ -1,0 +1,32 @@
+#main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#title {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+#about-text {
+    color: white;
+    font-size: 16px;
+}
+
+#about-section {
+    text-align: center;
+    padding: 2rem;
+}
+
+#see-events {
+    color: white;
+    background-color: #2D0B48;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+}
