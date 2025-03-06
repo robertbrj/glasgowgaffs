@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 
 
 def index(request):
-    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
+    context_dict = {'boldmessage': ''}
     return render(request, 'glasgowgaffsapp/index.html', context=context_dict)
 
 def register(request):
@@ -22,6 +22,10 @@ def register(request):
             user.set_password(user.password)
             user.save()
             registered = True
+
+            login(request,user)
+
+            return redirect(reverse('glasgowgaffsapp:index'))
         
         else:
             print(user_form.errors)
