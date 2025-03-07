@@ -12,6 +12,9 @@ def index(request):
     return render(request, 'glasgowgaffsapp/index.html', context=context_dict)
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect(reverse('glasgowgaffsapp:index')) 
+
     registered = False
 
     if request.method == 'POST':
@@ -36,6 +39,9 @@ def register(request):
     return render(request,'glasgowgaffsapp/register.html',context = {'user_form': user_form, 'registered': registered})
 
 def user_login(request):
+    if request.user.is_authenticated:
+        return redirect(reverse('glasgowgaffsapp:index')) 
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
