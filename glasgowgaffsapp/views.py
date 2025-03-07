@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from glasgowgaffsapp.forms import UserForm
+from glasgowgaffsapp.forms import UserForm,EventForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
@@ -13,10 +13,19 @@ def index(request):
 
 def create(request):
     if not request.user.is_authenticated:
-        return redirect(reverse('glasgowgaffsapp:index')) 
+        return redirect(reverse('glasgowgaffsapp:login'))
     
-    context_dict = {'boldmessage': ''}
-    return render(request, 'glasgowgaffsapp/create.html', context=context_dict)
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.created_by = request.user
+            event.save()
+            return redirect(reverse('glasgowgaffsapp:index'))
+    else:
+        form = EventForm()
+    
+    return render(request, 'glasgowgaffsapp/create.html', {'form': form})
 
 def register(request):
     if request.user.is_authenticated:

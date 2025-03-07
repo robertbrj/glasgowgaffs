@@ -17,7 +17,7 @@ class Event(models.Model):
     date = models.DateField()
     time = models.TimeField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE, default="Student Accommodation")
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     
-
     def __str__(self):
         return self.title

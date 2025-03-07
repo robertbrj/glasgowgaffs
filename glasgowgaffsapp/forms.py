@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from glasgowgaffsapp.models import Event, Location
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(
@@ -19,3 +20,16 @@ class UserForm(forms.ModelForm):
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError("A user with this email already exists.")
         return email
+    
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ['title', 'description', 'date', 'time', 'location']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Event Title'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Event Description'}),
+            'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
+            'location': forms.Select(attrs={'class': 'form-control'}),
+        }

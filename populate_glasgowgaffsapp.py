@@ -6,6 +6,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'glasgowgaffs.settings')
 import django
 django.setup()
 from glasgowgaffsapp.models import Event, Location
+from django.contrib.auth.models import User
 
 def populate():
     locations = [
@@ -36,15 +37,17 @@ def populate():
         l = add_location(name=location['name'], address=location['address'])
         location_objects.append(l)
 
+    admin = User.objects.get(username="team8b")
+
     for i, event in enumerate(events):
         location = location_objects[i]  
         date = datetime.strptime(event['date'], '%Y-%m-%d').date()  
         time = datetime.strptime(event['time'], '%H:%M:%S').time()  
         add_event(title=event['title'], description=event['description'],
-                  date=date, time=time, location=location)
+                  date=date, time=time, location=location, created_by=admin)
 
-def add_event(title, description, date, time, location):
-    e = Event.objects.create(title=title, description=description, date=date, time=time, location=location)
+def add_event(title, description, date, time, location, created_by):
+    e = Event.objects.create(title=title, description=description, date=date, time=time, location=location, created_by = created_by)
     return e
 
 def add_location(name, address):
