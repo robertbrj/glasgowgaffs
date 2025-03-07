@@ -11,6 +11,13 @@ def index(request):
     context_dict = {'boldmessage': ''}
     return render(request, 'glasgowgaffsapp/index.html', context=context_dict)
 
+def create(request):
+    if not request.user.is_authenticated:
+        return redirect(reverse('glasgowgaffsapp:index')) 
+    
+    context_dict = {'boldmessage': ''}
+    return render(request, 'glasgowgaffsapp/create.html', context=context_dict)
+
 def register(request):
     if request.user.is_authenticated:
         return redirect(reverse('glasgowgaffsapp:index')) 

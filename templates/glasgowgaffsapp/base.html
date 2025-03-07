@@ -19,6 +19,8 @@
 
             <!-- If logged in -->
             {% if user.is_authenticated %}
+            <a href="{% url 'glasgowgaffsapp:create' %}" class="auth-button">Create (test)</a>
+            <span class="auth-button"> | </span>
             <a class="auth-button">{{ user.username }}</a>
             <span class="auth-button"> | </span>
             <a class="auth-button" href="{% url 'glasgowgaffsapp:logout' %}">Sign Out</a>
