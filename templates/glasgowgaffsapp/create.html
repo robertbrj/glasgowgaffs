@@ -1,11 +1,31 @@
 {% extends 'glasgowgaffsapp/base.html' %}
+{% load static %}
+
 {% block body_block %}
-<h2>Create Event</h2>
+<link rel="stylesheet" href="{% static 'styles/create.css' %}" />
+
 <form method="post">
     {% csrf_token %}
 
-    {{ form.as_p }}
+    <h1 id="title">Create Event</h1>
 
-    <button type="submit">Create Event</button>
+    <div class="form-group">
+        {{ form.title }}
+    </div>
+
+    <div class="form-group">
+        {{ form.description }}
+    </div>
+    <div class="form-group">
+        {{ form.date }}
+    </div>
+    <div class="form-group">
+        {{ form.time }}
+    </div>
+    <div class="form-group">
+        {{ form.location }}
+    </div>
+
+    <input id="create-button" type="submit" name="submit" value="Let's get partying!" />
 </form>
 {% endblock %}

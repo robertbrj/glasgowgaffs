@@ -28,7 +28,7 @@ def create(request):
     return render(request, 'glasgowgaffsapp/create.html', {'form': form})
 
 def register(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated: 
         return redirect(reverse('glasgowgaffsapp:index')) 
 
     registered = False
