@@ -8,6 +8,7 @@
 <span id="success-message">Thanks for signing up!</span>
 {% else %}
 <form id="user-form" method="post" action="{% url 'glasgowgaffsapp:register' %}" enctype="multipart/form-data">
+
     {% csrf_token %}
 
     <h1 id="title">Sign up</h1>
