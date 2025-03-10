@@ -81,3 +81,7 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect(reverse('glasgowgaffsapp:index'))
+
+def contact_us(request):
+    context_dict = {'boldmessage': ''}
+    return render(request, 'glasgowgaffsapp/contact.html', context=context_dict)
