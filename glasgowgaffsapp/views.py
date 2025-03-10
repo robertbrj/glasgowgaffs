@@ -85,3 +85,7 @@ def user_logout(request):
 def contact_us(request):
     context_dict = {'boldmessage': ''}
     return render(request, 'glasgowgaffsapp/contact.html', context=context_dict)
+
+def events(request):
+    context_dict = {'boldmessage': ''}
+    return render(request, 'glasgowgaffsapp/events.html', context=context_dict)

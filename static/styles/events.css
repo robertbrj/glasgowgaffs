@@ -1,0 +1,19 @@
+#title {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+#event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+
+.event {
+    background-color: #2D0B48;
+    padding: 12px;
+    color: white;
+    border-radius: 12px;
+}
