@@ -5,7 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.shortcuts import redirect
-from glasgowgaffsapp.models import Event    
+from glasgowgaffsapp.models import Event
+from django.shortcuts import get_object_or_404   
 
 
 def index(request):
@@ -90,3 +91,7 @@ def contact_us(request):
 def events(request):
     all_events = Event.objects.all()
     return render(request, 'glasgowgaffsapp/events.html', {'events' : all_events})
+
+def event(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    return render(request, 'glasgowgaffsapp/event.html', {'event': event})

@@ -9,19 +9,19 @@
     <div id="event-grid">
 
         {% for event in events %}
-        <div class="event">
+        <a class="event" href="{% url 'glasgowgaffsapp:event' event.id %}">
             <h3 id="event-title">{{ event.title }}</h3>
 
             <br>
 
             <h4 id="location">Location: {{ event.location }}</h4>
-            <h4 id="date">{{ event.date }}</h4>
-            <h4 id="time">{{ event.time }}</h4>
+            <h4 id="date">Date: {{ event.date }}</h4>
+            <h4 id="time">Time: {{ event.time }}</h4>
 
             <br>
 
             <span id="event-description">{{ event.description }} </span>
-        </div>
+        </a>
         {% endfor %}
 
     </div>

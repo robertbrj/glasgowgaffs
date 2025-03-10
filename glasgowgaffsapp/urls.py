@@ -11,4 +11,5 @@ urlpatterns = [
     path('create/', views.create, name='create'),
     path('contactus/', views.contact_us, name='contactus'),
     path('events/', views.events, name='events'),
+    path('event/<uuid:event_id>/', views.event, name='event'),
 ]

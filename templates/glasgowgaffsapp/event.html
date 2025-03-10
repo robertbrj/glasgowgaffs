@@ -1,0 +1,47 @@
+{% extends 'glasgowgaffsapp/base.html' %}
+{% load static %}
+
+{% block body_block %}
+<link rel="stylesheet" href="{% static 'styles/event.css' %}" />
+
+<section id="main">
+
+    <h1 id="title">{{event.title}}</h1>
+
+    <div id="content">
+
+        <div id="details">
+
+            <div class="detail-group">
+                <span class="detail-label">Location: </span>
+                <span class="detail"> {{ event.location }}</span>
+            </div>
+
+            <div class="detail-group">
+                <span class="detail-label">Date: </span>
+                <span class="detail"> {{ event.date }}</span>
+            </div>
+
+            <div class="detail-group">
+                <span class="detail-label">Time:</span>
+                <span class="detail"> {{ event.time }}</span>
+            </div>
+
+            <!-- <div class="detail-group">
+                <span class="detail-label">Party-goers:</span>
+                <span class="detail"> {{ event.attendees }}</span>
+            </div> -->
+
+            <br>
+
+            <span id="event-description">{{ event.description }} </span>
+        </div>
+
+        <img src="{% static 'images/googlemapstest.png' %}" alt="Google Maps Location" />
+    </div>
+
+    <div id="attend">
+        <button id="attend-button">Sign me up!</button>
+    </div>
+</section>
+{% endblock %}
