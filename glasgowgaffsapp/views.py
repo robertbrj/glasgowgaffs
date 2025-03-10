@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.shortcuts import redirect
+from glasgowgaffsapp.models import Event    
 
 
 def index(request):
@@ -87,5 +88,5 @@ def contact_us(request):
     return render(request, 'glasgowgaffsapp/contact.html', context=context_dict)
 
 def events(request):
-    context_dict = {'boldmessage': ''}
-    return render(request, 'glasgowgaffsapp/events.html', context=context_dict)
+    all_events = Event.objects.all()
+    return render(request, 'glasgowgaffsapp/events.html', {'events' : all_events})

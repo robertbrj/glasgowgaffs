@@ -8,50 +8,21 @@
 
     <div id="event-grid">
 
+        {% for event in events %}
         <div class="event">
-            <h3 id="event-title">Thursday Madness</h3>
+            <h3 id="event-title">{{ event.title }}</h3>
 
             <br>
 
-            <h4 id="location">Location: 123 BlaBlaBla Road, Glasgow, G12 345</h4>
-            <h4 id="date">12/34/2056</h4>
-            <h4 id="time">12:00</h4>
+            <h4 id="location">Location: {{ event.location }}</h4>
+            <h4 id="date">{{ event.date }}</h4>
+            <h4 id="time">{{ event.time }}</h4>
 
             <br>
 
-            <span id="event-description">Come to Flat D9 at 22:00 to have the best time of your life! We got plenty to
-                drink, society games and we want to make new friends!! </span>
+            <span id="event-description">{{ event.description }} </span>
         </div>
-
-        <div class="event">
-            <h3 id="event-title">Thursday Madness</h3>
-
-            <br>
-
-            <h4 id="location">Location: 123 BlaBlaBla Road, Glasgow, G12 345</h4>
-            <h4 id="date">Date: 12/34/2056</h4>
-            <h4 id="time">Time: 12:00</h4>
-
-            <br>
-
-            <span id="event-description">Come to Flat D9 at 22:00 to have the best time of your life! We got plenty to
-                drink, society games and we want to make new friends!! </span>
-        </div>
-
-        <div class="event">
-            <h3 id="event-title">Thursday Madness</h3>
-
-            <br>
-
-            <h4 id="location">Location: 123 BlaBlaBla Road, Glasgow, G12 345</h4>
-            <h4 id="date">12/34/2056</h4>
-            <h4 id="time">12:00</h4>
-
-            <br>
-
-            <span id="event-description">Come to Flat D9 at 22:00 to have the best time of your life! We got plenty to
-                drink, society games and we want to make new friends!! </span>
-        </div>
+        {% endfor %}
 
     </div>
 </section>

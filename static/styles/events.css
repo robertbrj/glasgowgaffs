@@ -6,8 +6,30 @@
 
 #event-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    /* Default: 4 columns for large desktops */
     gap: 1rem;
+}
+
+/* Medium screens: 3 columns */
+@media (max-width: 1024px) {
+    #event-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Small screens: 2 columns */
+@media (max-width: 768px) {
+    #event-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra small screens: 1 column */
+@media (max-width: 480px) {
+    #event-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 
@@ -16,4 +38,13 @@
     padding: 12px;
     color: white;
     border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.event:hover {
+    font-weight: 600;
+    background-color: white;
+    color: #2D0B48;
+    transform: scale(1.05);
 }
