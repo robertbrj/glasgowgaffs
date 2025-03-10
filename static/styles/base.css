@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600&display=swap');
 
 #nav-bar {
     width: 100%;
@@ -37,6 +37,7 @@
     background-color: transparent;
     border: none;
     color: white;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 24px;
     font-weight: 700;
     text-decoration: none;
@@ -61,7 +62,6 @@
 body {
     background-color: #69329C;
     font-family: "Encode Sans Semi Condensed", sans-serif;
-    font-weight: 100;
 }
 
 h1, h2, #user-area a[href*="register"], #user-area a[href*="login"] {

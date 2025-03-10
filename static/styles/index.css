@@ -29,12 +29,18 @@ img {
     padding-right: 2rem;
 }
 
+#contact-section {
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
 #see-events {
-    color: white;
-    background-color: #2D0B48;
     font-family: 'Saira Condensed', sans-serif;
     font-size: 24px;
     font-weight: 700;
+    color: white;
+    background-color: #2D0B48;
     padding: 1rem;
     border-radius: 12px;
     border: none;
