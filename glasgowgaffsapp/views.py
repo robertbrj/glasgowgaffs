@@ -94,4 +94,5 @@ def events(request):
 
 def event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
-    return render(request, 'glasgowgaffsapp/event.html', {'event': event})
+    current_user = request.user
+    return render(request, 'glasgowgaffsapp/event.html', {'event': event, 'user': current_user})

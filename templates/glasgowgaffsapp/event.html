@@ -32,6 +32,11 @@
                 <span class="detail"> {{ event.attendees.count }}</span>
             </div>
 
+            <div class="detail-group">
+                <span class="detail-label">Party host:</span>
+                <span class="detail"> {{ event.created_by }}</span>
+            </div>
+
             <br>
 
             <span id="event-description">{{ event.description }} </span>
@@ -40,8 +45,10 @@
         <img src="{% static 'images/googlemapstest.png' %}" alt="Google Maps Location" />
     </div>
 
+    {% if user != event.created_by %}
     <div id="attend">
         <button id="attend-button">Sign me up!</button>
     </div>
+    {% endif %}
 </section>
 {% endblock %}
