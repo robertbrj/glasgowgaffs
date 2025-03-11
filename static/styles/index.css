@@ -22,12 +22,18 @@ img {
 #about-text {
     color: white;
     font-size: 16px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 #about-section {
     text-align: center;
     padding-left: 2rem;
     padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
 }
 
 #contact-section {
@@ -37,6 +43,7 @@ img {
 }
 
 #see-events {
+    display: block;
     font-family: 'Saira Condensed', sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -47,6 +54,9 @@ img {
     border: none;
     transition: all 0.3s ease;
     text-decoration: none;
+    max-width: 10vw;
+    text-align: center;
+    margin: 0 auto;
 }
 
 #see-events:hover {

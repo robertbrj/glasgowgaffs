@@ -43,7 +43,7 @@ def populate():
         location = location_objects[i]  
         date = datetime.strptime(event['date'], '%Y-%m-%d').date()  
         time = datetime.strptime(event['time'], '%H:%M:%S').time()  
-        add_event(title=event['title'], description=event['description'],
+        e = add_event(title=event['title'], description=event['description'],
                   date=date, time=time, location=location, created_by=admin)
 
 def add_event(title, description, date, time, location, created_by):
