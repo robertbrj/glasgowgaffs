@@ -12,14 +12,17 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
+def get_default_location():
+    return Location.objects.get_or_create(name="Student Accommodation", address="Default Address")[0].id
+
 class Event(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=200)
     date = models.DateField()
     time = models.TimeField()
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, default="Student Accommodation")
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True, blank=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     attendees = models.ManyToManyField(User, related_name="attending_events", blank=True)
 
     def save(self, *args, **kwargs):

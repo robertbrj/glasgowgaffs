@@ -1,0 +1,52 @@
+{% extends 'glasgowgaffsapp/base.html' %}
+{% load static %}
+
+{% block body_block %}
+<link rel="stylesheet" href="{% static 'styles/myevents.css' %}" />
+    
+<div id="events_container">
+    <h1 id="title">My Events</h1>
+    
+    <!-- Toggle Switch -->
+    <div class="toggle_wrapper">
+        <h2 id="created_title" class="bold">Created Events</h2>
+        <label class="toggle-container">
+            <input type="checkbox" id="eventToggle">
+            <span class="toggle-label"></span>
+        </label>
+        <h2 id="attending_title">Attending Events</h2>
+    </div>
+
+    <!-- My Events Section -->
+    <div id="created_events" class="event_section">
+        {% for event in created_events %}
+        <div class="event_card">
+            <h2>{{ event.title }}</h2>
+            <p>Location: {{ event.location }}</p>
+            <p>Date: {{ event.date }}</p>
+            <p>Time: {{ event.time }}</p>
+            <p>{{ event.description }}</p>
+        </div>
+        {% empty %}
+        <p>No events have been created</p>
+        {% endfor %}
+    </div>
+
+    <!-- Attending Events Section -->
+    <div id="attending_events" class="event_section hidden">
+        {% for event in attending_events %}
+        <div class="event_card">
+            <h2>{{ event.title }}</h2>
+            <p>Location: {{ event.location }}</p>
+            <p>Date: {{ event.date }}</p>
+            <p>Time: {{ event.time }}</p>
+            <p>{{ event.description }}</p>
+        </div>
+        {% empty %}
+        <p>You are not attending any events.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{% static 'javascript/slider.js' %}"></script>
+{% endblock %}
