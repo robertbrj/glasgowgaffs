@@ -85,7 +85,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-
 <script>
     $('#attend-button').click(function () {
         var eventId = "{{event.id}}";
@@ -98,6 +97,8 @@
         });
     });
 </script>
+
+<script src="{% static 'javascript/refresh.js' %}"></script>
 
 <style>
     #map {
