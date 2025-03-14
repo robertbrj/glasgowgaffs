@@ -95,3 +95,15 @@ def events(request):
 def event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     return render(request, 'glasgowgaffsapp/event.html', {'event': event})
+
+
+@login_required
+def myevents(request):
+    created_events = Event.objects.filter(created_by=request.user)
+    attending_events = Event.objects.filter(attendees=request.user)
+
+    return render(request, 'glasgowgaffsapp/myevents.html', {
+        'created_events': created_events,
+        'attending_events': attending_events
+    })
+
