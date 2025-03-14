@@ -107,3 +107,11 @@ def myevents(request):
         'attending_events': attending_events
     })
 
+@login_required
+def toggle_attendance(request,event_id):
+    event= get_object_or_404(Event,id=event_id)
+    if request.user in event.attendees.all():
+        event.attendees.remove(request.user)
+    else:
+        event.attendees.add(request.user)
+    return redirect('glasgowgaffsapp:event', event_id=event.id)

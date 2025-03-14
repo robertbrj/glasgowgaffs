@@ -41,23 +41,30 @@
         <div id="map"></div>
     </div>
 
+
     {% if user != event.created_by %}
     <div id="attend">
-        <button id="attend-button">Sign me up!</button>
+        <button id="attend-button">
+            {% if user in event.attendees.all %}
+            Unattend!
+            {% else %}
+            Sign me up!
+            {% endif %}
+        </button>
     </div>
     {% endif %}
 </section>
 
 <script>
     function initMap() {
-        var address = "{{ event.location }}"; 
+        var address = "{{ event.location }}";
         var geocoder = new google.maps.Geocoder();
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
-            center: { lat: 55.8730, lng: -4.2890 } 
+            center: { lat: 55.8730, lng: -4.2890 }
         });
 
-        geocoder.geocode({ 'address': address }, function(results, status) {
+        geocoder.geocode({ 'address': address }, function (results, status) {
             if (status === 'OK') {
                 map.setCenter(results[0].geometry.location);
                 var marker = new google.maps.Marker({
@@ -73,6 +80,22 @@
 
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIInzkFQnPkvvLdbUsZX8Yiz5xOXxeQAU&callback=initMap">
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<script>
+    $('#attend-button').click(function () {
+        var eventId = "{{event.id}}";
+        $.post(`/glasgowgaffsapp/event/${eventId}/toggle_attendance/`, {
+            'csrfmiddlewaretoken': '{{ csrf_token }}'
+        }, function (response) {
+            console.log("Attendance changed:", response);
+        }).fail(function () {
+            console.log("Error processing request.");
+        });
+    });
 </script>
 
 <style>
