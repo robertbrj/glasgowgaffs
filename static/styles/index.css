@@ -65,3 +65,9 @@ img {
     background-color: white;
     color: #2D0B48;
 }
+
+#greeting {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+}

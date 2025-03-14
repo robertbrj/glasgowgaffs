@@ -8,6 +8,9 @@
 
     <div id="about-section">
         <h1 id="title">Glasgow Gaffs</h1>
+        {% if user.is_authenticated %}
+        <h3 id="greeting">Welcome, {{ user.username }}!</h3>
+        {% endif %}
         <h4 id="about-text">Glasgow’s got a legendary nightlife, but let’s be real—sometimes the best nights aren’t in
             clubs, they’re in flats, living rooms, and back gardens. That’s where we come in.
 

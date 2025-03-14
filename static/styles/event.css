@@ -59,3 +59,25 @@ img {
 #attend {
     text-align: center;
 }
+
+#back-button {
+    color: white;
+    background-color: #2D0B48;
+    font-size: 18px; 
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 600;
+    padding: 8px 16px; 
+    border-radius: 6px; 
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    text-decoration: none;
+}
+
+#back-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: white;
+    color: #2D0B48;
+}
