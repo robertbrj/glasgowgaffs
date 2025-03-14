@@ -58,6 +58,20 @@
     color: #69329C;
 }
 
+.user-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.user-button:hover {
+    color: white; 
+}
 
 body {
     background-color: #69329C;

@@ -23,7 +23,7 @@
             <span id="pipe"> | </span>
             <a href="{% url 'glasgowgaffsapp:create' %}" class="auth-button">Create</a>
             <span id="pipe"> | </span>
-            <a class="auth-button">{{ user.username }}</a>
+            <a class="user-button">{{ user.username }}</a>
             <span id="pipe"> | </span>
             <a class="auth-button" href="{% url 'glasgowgaffsapp:logout' %}">Sign Out</a>
             {% else %}
