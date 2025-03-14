@@ -5,13 +5,10 @@
 <link rel="stylesheet" href="{% static 'styles/event.css' %}" />
 
 <section id="main">
-
-    <h1 id="title">{{event.title}}</h1>
+    <h1 id="title">{{ event.title }}</h1>
 
     <div id="content">
-
         <div id="details">
-
             <div class="detail-group">
                 <span class="detail-label">Location: </span>
                 <span class="detail"> {{ event.location }}</span>
@@ -38,11 +35,10 @@
             </div>
 
             <br>
-
             <span id="event-description">{{ event.description }} </span>
         </div>
 
-        <img src="{% static 'images/googlemapstest.png' %}" alt="Google Maps Location" />
+        <div id="map"></div>
     </div>
 
     {% if user != event.created_by %}
@@ -51,4 +47,40 @@
     </div>
     {% endif %}
 </section>
+
+<script>
+    function initMap() {
+        var address = "{{ event.location }}"; 
+        var geocoder = new google.maps.Geocoder();
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: { lat: 55.8730, lng: -4.2890 } 
+        });
+
+        geocoder.geocode({ 'address': address }, function(results, status) {
+            if (status === 'OK') {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful: ' + status);
+            }
+        });
+    }
+</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIInzkFQnPkvvLdbUsZX8Yiz5xOXxeQAU&callback=initMap">
+</script>
+
+<style>
+    #map {
+        width: 50%;
+        height: 400px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+</style>
 {% endblock %}
