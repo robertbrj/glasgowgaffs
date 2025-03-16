@@ -70,7 +70,7 @@
 }
 
 .user-button:hover {
-    color: white; 
+    color: white;
 }
 
 body {
@@ -78,7 +78,10 @@ body {
     font-family: "Encode Sans Semi Condensed", sans-serif;
 }
 
-h1, h2, #user-area a[href*="register"], #user-area a[href*="login"] {
+h1,
+h2,
+#user-area a[href*="register"],
+#user-area a[href*="login"] {
     font-family: 'Saira Condensed', sans-serif;
 }
 
@@ -86,4 +89,21 @@ h1, h2, #user-area a[href*="register"], #user-area a[href*="login"] {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+
+    #home-button {
+
+        font-size: 36px;
+    }
+
+    .auth-button {
+        font-size: 18px;
+    }
+
+    .user-button {
+        font-size: 18px;
+    }
+
 }

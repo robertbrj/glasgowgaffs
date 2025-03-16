@@ -54,7 +54,7 @@ img {
     border: none;
     transition: all 0.3s ease;
     text-decoration: none;
-    max-width: 10vw;
+
     text-align: center;
     margin: 0 auto;
 }
@@ -70,4 +70,29 @@ img {
     color: white;
     font-size: 30px;
     font-weight: 700;
+}
+
+#clyderesponsiveimg {
+    display: none;
+}
+
+@media screen and (max-width: 780px) {
+
+    #georgesqimg,
+    #clydeimg {
+        display: none;
+    }
+
+    body {
+        background-image: url("../images/backgroundrelative.png");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+
+
 }

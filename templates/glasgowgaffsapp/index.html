@@ -3,8 +3,9 @@
 
 {% block body_block %}
 <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+<img id="clyderesponsiveimg" src="{% static 'images/image1.png' %}" alt="Picture of River Clyde" />
 <div id="main">
-    <img src="{% static 'images/image1.png' %}" alt="Picture of River Clyde" />
+    <img id="clydeimg" src="{% static 'images/image1.png' %}" alt="Picture of River Clyde" />
 
     <div id="about-section">
         <h1 id="title">Glasgow Gaffs</h1>
@@ -35,6 +36,6 @@
         <a href="{% url 'glasgowgaffsapp:events' %}" id="see-events">See Events</a>
     </div>
 
-    <img src="{% static 'images/image2.png' %}" alt="Picture of George Square" />
+    <img id="georgesqimg" src="{% static 'images/image2.png' %}" alt="Picture of George Square" />
 </div>
 {% endblock %}
