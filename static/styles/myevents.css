@@ -90,10 +90,11 @@
 
 #event_grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
+    justify-content: center;
 }
 
 @media (max-width: 1024px) {
@@ -120,12 +121,15 @@
 
 .event_card {
     background-color: #2D0B48;
-    padding: 12px;
+    padding: 15px;
     color: white;
     border-radius: 12px;
     transition: all 0.3s ease;
     cursor: pointer;
     text-decoration: none;
+    max-width: 350px;
+    width: 90%;
+    margin: 10px auto;
 }
 
 .event_card:hover {
@@ -137,8 +141,9 @@
 
 
 .button-container {
-    text-align: center;
-    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 #create-event {
