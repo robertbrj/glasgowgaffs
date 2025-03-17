@@ -17,8 +17,13 @@
         <h2 id="attending_title">Attending Events</h2>
     </div>
 
+    <!-- Create Events Button -->
+    <div class="button-container">
+        <a href="{% url 'glasgowgaffsapp:create' %}" id="create-event">Create New Event!</a>
+    </div>
+
     <!-- My Events Section -->
-    <div id="created_events" class="event_section">
+    <div id="event_grid">
         {% for event in created_events %}
         <div class="event_card">
             <h2>{{ event.title }}</h2>
@@ -29,21 +34,6 @@
         </div>
         {% empty %}
         <p>No events have been created</p>
-        {% endfor %}
-    </div>
-
-    <!-- Attending Events Section -->
-    <div id="attending_events" class="event_section hidden">
-        {% for event in attending_events %}
-        <div class="event_card">
-            <h2>{{ event.title }}</h2>
-            <p>Location: {{ event.location }}</p>
-            <p>Date: {{ event.date }}</p>
-            <p>Time: {{ event.time }}</p>
-            <p>{{ event.description }}</p>
-        </div>
-        {% empty %}
-        <p>You are not attending any events.</p>
         {% endfor %}
     </div>
 </div>

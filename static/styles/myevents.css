@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600&display=swap');
+
 #title {
     color: white;
     font-size: 48px;
@@ -59,7 +61,7 @@
 }
 
 #created_title, #attending_title {
-    color: lightgrey;
+    color: grey;
     font-size: 30px;
     font-weight: normal;
     transition: font-weight 0.3s ease, color 0.3s ease;
@@ -86,13 +88,30 @@
     white-space: nowrap;
 }
 
-.event_section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    width: 100%;
-    max-width: 900px;
+#event_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+    .event_section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .event_section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .event_section {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .hidden {
@@ -100,19 +119,48 @@
 }
 
 .event_card {
-    background: #2D0B48;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 15px;
-    width: 45%;
-    max-width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #2D0B48;
+    padding: 12px;
     color: white;
-    font-family: Arial, sans-serif;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .event_card:hover {
+    font-weight: 600;
+    background-color: white;
+    color: #2D0B48;
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
+
+.button-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#create-event {
+    display: block;
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    background-color: #2D0B48;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    text-align: center;
+    margin: 0 auto;
+}
+
+#create-event:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: white;
+    color: #2D0B48;
+}
