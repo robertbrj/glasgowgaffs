@@ -21,7 +21,7 @@
             {% if user.is_authenticated %}
             <a href="{% url 'glasgowgaffsapp:my_events' %}" class="auth-button">My Events</a>
             <span id="pipe"> | </span>
-            <a href="{% url 'glasgowgaffsapp:create' %}" class="auth-button">Create</a>
+            <a href="{% url 'glasgowgaffsapp:create' %}" class="auth-button">Create Event</a>
             <span id="pipe"> | </span>
             <a class="user-button">{{ user.username }}</a>
             <span id="pipe"> | </span>

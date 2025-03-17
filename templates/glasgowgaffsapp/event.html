@@ -45,13 +45,20 @@
 
     {% if user != event.created_by %}
     <div id="attend">
-        <button id="attend-button">
-            {% if user in event.attendees.all %}
-            Unattend!
-            {% else %}
-            Sign me up!
+            {% if user.is_authenticated %}
+                <!-- If logged in -->
+                <button id="attend-button">
+                    {% if user in event.attendees.all %}
+                    Unattend!
+                    {% else %}
+                    Sign me up!
+                </button>
             {% endif %}
-        </button>
+            {% else %}
+                <!-- If not logged in -->
+                <br><br><br>
+                <a href="{% url 'glasgowgaffsapp:login' %}" id="log-in">Log in to Attend!</a>
+            {% endif %}
     </div>
     {% endif %}
 </section>
