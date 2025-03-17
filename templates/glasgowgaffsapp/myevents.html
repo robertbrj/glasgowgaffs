@@ -25,30 +25,34 @@
     <!-- Created Events Section -->
     <div id="created_events" class="event_grid">
         {% for event in created_events %}
-        <div class="event_card">
-            <h2>{{ event.title }}</h2>
-            <p>Location: {{ event.location }}</p>
-            <p>Date: {{ event.date }}</p>
-            <p>Time: {{ event.time }}</p>
-            <p>{{ event.description }}</p>
-        </div>
+        <a class="event" href="{% url 'glasgowgaffsapp:event' event.id %}">
+            <div class="event_card">
+                <h2>{{ event.title }}</h2>
+                <p>Location: {{ event.location }}</p>
+                <p>Date: {{ event.date }}</p>
+                <p>Time: {{ event.time }}</p>
+                <p>{{ event.description }}</p>
+            </div>
         {% empty %}
-        <p>No events have been created</p>
+            <p>No events have been created</p>
         {% endfor %}
+        </a>
     </div>
     <!-- Attending Events Section -->
     <div id="attending_events" class="event_grid hidden">
     {% for event in attending_events %}
-        <div class="event_card">
-            <h2>{{ event.title }}</h2>
-            <p>Location: {{ event.location }}</p>
-            <p>Date: {{ event.date }}</p>
-            <p>Time: {{ event.time }}</p>
-            <p>{{ event.description }}</p>
-        </div>
-    {% empty %}
-        <p>You are not attending and events.</p>
-    {% endfor %}
+        <a class="event" href="{% url 'glasgowgaffsapp:event' event.id %}">
+            <div class="event_card" >
+                <h2>{{ event.title }}</h2>
+                <p>Location: {{ event.location }}</p>
+                <p>Date: {{ event.date }}</p>
+                <p>Time: {{ event.time }}</p>
+                <p>{{ event.description }}</p>
+            </div>
+        {% empty %}
+            <p>You are not attending and events.</p>
+        {% endfor %}
+        </a>
     </div>
 </div>
 
