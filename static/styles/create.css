@@ -56,3 +56,30 @@ select {
     background-color: white;
     color: #2D0B48;
 }
+/* styling changes to the icons */
+select {
+    background-color: #2D0B48 !important;
+    color: white !important;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+select::-ms-expand {
+    display: none;
+}
+
+select option {
+    background-color: #2D0B48;
+    color: white;
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
