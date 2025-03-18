@@ -30,6 +30,10 @@
     #event-grid {
         grid-template-columns: repeat(1, 1fr);
     }
+
+    .event {
+        font-size: smaller;
+    }
 }
 
 
@@ -44,7 +48,6 @@
 }
 
 .event:hover {
-    font-weight: 600;
     background-color: white;
     color: #2D0B48;
     transform: scale(1.05);

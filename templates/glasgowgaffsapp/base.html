@@ -12,7 +12,11 @@
 <body>
     <!-- nav bar -->
     <div id="nav-bar">
-        <a href="{% url 'glasgowgaffsapp:index' %}" id="home-button">GG</a>
+        <div id="home-area">
+            <a href="{% url 'glasgowgaffsapp:index' %}" id="home-button">GG</a>
+
+            <a id="events-button" href="{% url 'glasgowgaffsapp:events' %}">Events</a>
+        </div>
 
         <!-- User area -->
         <div id="user-area">
@@ -31,7 +35,7 @@
             <span id="pipe"> | </span>
             <a class="auth-button" href="{% url 'glasgowgaffsapp:login' %}">Log In</a>
             {% endif %}
-            
+
             <span id="pipe"> | </span>
             <a class="auth-button" href="{% url 'glasgowgaffsapp:contactus' %}">✆</a>
 

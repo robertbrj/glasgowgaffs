@@ -34,6 +34,11 @@
     color: #69329C;
 }
 
+#home-area {
+    display: flex;
+    align-items: center;
+}
+
 .auth-button {
     background-color: transparent;
     border: none;
@@ -45,18 +50,32 @@
     transition: transform 0.3s ease;
 }
 
+#events-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    margin-left: 24px;
+}
+
+#events-button:hover {
+    cursor: pointer;
+    color: #69329C;
+}
+
 .auth-button:hover {
     cursor: pointer;
+    color: #69329C;
 }
 
 #pipe {
     color: white;
     font-size: 24px;
     font-weight: 700;
-}
-
-.auth-button:hover {
-    color: #69329C;
 }
 
 .user-button {
@@ -75,9 +94,26 @@
 }
 
 body {
-    background-color: #69329C;
+    background: linear-gradient(45deg, #69329C, #844dd5, #41136a);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s ease infinite;
     font-family: "Encode Sans Semi Condensed", sans-serif;
 }
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 h1,
 h2,
@@ -105,6 +141,30 @@ h2,
 
     .user-button {
         font-size: 18px;
+    }
+
+    #nav-bar {
+        padding: 0.5rem;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+
+    #home-button {
+        font-size: 32px;
+    }
+
+    .auth-button {
+        font-size: 14px;
+    }
+
+    .user-button {
+        font-size: 14px;
+    }
+
+    #nav-bar {
+        padding: 0.5rem;
     }
 
 }
