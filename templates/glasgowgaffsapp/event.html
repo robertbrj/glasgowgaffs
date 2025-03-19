@@ -12,7 +12,7 @@
         <div id="details">
             <div class="detail-group">
                 <span class="detail-label">Location: </span>
-                <span class="detail"> {{ event.location }}</span>
+                <span class="detail"> {{ event.location.address }}</span>
             </div>
 
             <div class="detail-group">
@@ -45,27 +45,27 @@
 
     {% if user != event.created_by %}
     <div id="attend">
-            {% if user.is_authenticated %}
-                <!-- If logged in -->
-                <button id="attend-button">
-                    {% if user in event.attendees.all %}
-                    Unattend!
-                    {% else %}
-                    Sign me up!
-                </button>
-            {% endif %}
+        {% if user.is_authenticated %}
+        <!-- If logged in -->
+        <button id="attend-button">
+            {% if user in event.attendees.all %}
+            Unattend!
             {% else %}
-                <!-- If not logged in -->
-                <br><br><br>
-                <a href="{% url 'glasgowgaffsapp:login' %}" id="log-in">Log in to Attend!</a>
-            {% endif %}
+            Sign me up!
+        </button>
+        {% endif %}
+        {% else %}
+        <!-- If not logged in -->
+        <br><br><br>
+        <a href="{% url 'glasgowgaffsapp:login' %}" id="log-in">Log in to Attend!</a>
+        {% endif %}
     </div>
     {% endif %}
 </section>
 
 <script>
     function initMap() {
-        var address = "{{ event.location }}";
+        var address = "{{ event.location.address }}";
         var geocoder = new google.maps.Geocoder();
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
@@ -107,12 +107,4 @@
 
 <script src="{% static 'javascript/refresh.js' %}"></script>
 
-<style>
-    #map {
-        width: 50%;
-        height: 400px;
-        margin-top: 20px;
-        border-radius: 10px;
-    }
-</style>
 {% endblock %}

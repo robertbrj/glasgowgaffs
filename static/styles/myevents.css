@@ -52,15 +52,16 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.toggle-container input:checked + .toggle-label {
+.toggle-container input:checked+.toggle-label {
     background-color: #34c759;
 }
 
-.toggle-container input:checked + .toggle-label::before {
+.toggle-container input:checked+.toggle-label::before {
     transform: translate(25px, -50%);
 }
 
-#created_title, #attending_title {
+#created_title,
+#attending_title {
     color: grey;
     font-size: 30px;
     font-weight: normal;
@@ -76,7 +77,8 @@
 }
 
 
-#created_title::after, #attending_title::after {
+#created_title::after,
+#attending_title::after {
     content: attr(data-text);
     font-weight: bold;
     visibility: hidden;
@@ -84,7 +86,7 @@
     white-space: nowrap;
 }
 
-#event_grid {
+.event_grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
@@ -93,6 +95,7 @@
     justify-content: center;
 
 }
+
 .hidden {
     display: none;
 }
@@ -111,10 +114,12 @@
 }
 
 .event_card:hover {
-    font-weight: 600;
-    background-color: white;
-    color: #2D0B48;
-    transform: scale(1.05);
+    background-color: #2D0B48;
+    padding: 12px;
+    color: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
     text-decoration: none;
 }
 
@@ -123,6 +128,7 @@
     justify-content: center;
     margin-bottom: 20px;
 }
+
 /* styling for create event button */
 #create-event {
     display: block;
@@ -140,6 +146,7 @@
     text-align: center;
     margin: 0 auto;
 }
+
 /* hover effect ofr the create event button*/
 #create-event:hover {
     cursor: pointer;
@@ -147,6 +154,7 @@
     background-color: white;
     color: #2D0B48;
 }
+
 /* generic media styling*/
 @media (max-width: 1024px) {
     .event_section {
@@ -165,6 +173,7 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
 /* remove inherent underlining */
 #events_container a {
     text-decoration: none !important;

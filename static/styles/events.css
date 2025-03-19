@@ -7,7 +7,6 @@
 #event-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* Default: 4 columns for large desktops */
     gap: 1rem;
 }
 

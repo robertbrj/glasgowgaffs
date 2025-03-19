@@ -63,11 +63,11 @@ img {
 #back-button {
     color: white;
     background-color: #2D0B48;
-    font-size: 18px; 
+    font-size: 18px;
     font-family: "Saira Condensed", sans-serif;
     font-weight: 600;
-    padding: 8px 16px; 
-    border-radius: 6px; 
+    padding: 8px 16px;
+    border-radius: 6px;
     border: none;
     transition: all 0.3s ease;
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.15);
@@ -103,4 +103,61 @@ img {
     transform: scale(1.1);
     background-color: white;
     color: #2D0B48;
+}
+
+#map {
+    width: 50%;
+    height: 400px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    #content {
+        flex-direction: column;
+    }
+
+    #map {
+        width: 70%;
+    }
+
+    #attend {
+        text-align: left;
+    }
+
+
+    .detail-group {
+        font-size: 20px;
+    }
+
+    #attend a,
+    #attend button {
+        font-size: 20px;
+    }
+
+    #back-button {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 468px) {
+    #map {
+        width: 100%;
+    }
+
+    #title {
+        font-size: 30px;
+
+    }
+
+    .detail-group {
+        font-size: 16px;
+    }
+
+    #attend a,
+    #attend button {
+        font-size: 20px;
+    }
+
 }
