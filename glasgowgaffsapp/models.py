@@ -34,7 +34,6 @@ class Event(models.Model):
         return self.title
     
 
-# Signal to add the event creator to attendees after the Event is saved
 @receiver(post_save, sender=Event)
 def add_creator_to_attendees(sender, instance, created, **kwargs):
     if created:
