@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from glasgowgaffsapp.models import Event, Location
+from django.utils import timezone
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(
@@ -20,6 +21,7 @@ class UserForm(forms.ModelForm):
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError("A user with this email already exists.")
         return email
+
     
 
 class EventForm(forms.ModelForm):
@@ -33,3 +35,9 @@ class EventForm(forms.ModelForm):
             'time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
             'location': forms.Select(attrs={'class': 'form-control'}),
         }
+
+    def clean_date(self):
+        event_date = self.cleaned_data.get('date')
+        if event_date and event_date < timezone.localdate():
+            raise forms.ValidationError("The event date cannot be in the past.")
+        return event_date

@@ -16,9 +16,15 @@
     <div class="form-group">
         {{ form.description }}
     </div>
+
     <div class="form-group">
         {{ form.date }}
+
+        {% if form.date.errors %}
+        <p class="err">{{ form.date.errors.0 }}</p>
+        {% endif %}
     </div>
+
     <div class="form-group">
         {{ form.time }}
     </div>

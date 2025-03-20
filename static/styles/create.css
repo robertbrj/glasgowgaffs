@@ -11,6 +11,11 @@
     margin-bottom: 1%;
 }
 
+.form-group p {
+    color: red;
+    font-weight: 900;
+}
+
 form {
     text-align: center;
 }
@@ -56,6 +61,7 @@ select {
     background-color: white;
     color: #2D0B48;
 }
+
 /* styling changes to the icons */
 select {
     background-color: #2D0B48 !important;
