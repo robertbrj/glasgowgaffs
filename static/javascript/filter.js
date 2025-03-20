@@ -36,9 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Sorting Mode:", isUpcoming ? "Upcoming" : "Popular");
 
         let container = isCreated ? createdEventsContainer : attendingEventsContainer;
-        let events = Array.from(container.querySelectorAll(".event_card"));
+        let events = Array.from(container.querySelectorAll(".event"));
 
         let parsedEvents = events.map(event => {
+            let eventCard = event.querySelector(".event_card");
             let dateText = event.querySelector("p:nth-of-type(2)")?.textContent.replace("Date: ", "").trim();
             let timeText = event.querySelector("p:nth-of-type(3)")?.textContent.replace("Time: ", "").trim();
             let attendeesText = event.querySelector("p:nth-of-type(4)")?.textContent.replace("Attendees: ", "").trim();
