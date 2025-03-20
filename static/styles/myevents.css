@@ -21,7 +21,15 @@
     align-items: center;
     justify-content: center;
     margin: 20px 0;
-    gap: 10px;
+    gap: 5px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 60px;
 }
 
 .toggle-container input {
@@ -29,7 +37,7 @@
 }
 
 .toggle-label {
-    position: relative;
+   position: relative;
     display: inline-block;
     width: 50px;
     height: 25px;
@@ -61,7 +69,9 @@
 }
 
 #created_title,
-#attending_title {
+#attending_title,
+#upcoming_title,
+#popular_title{
     color: grey;
     font-size: 30px;
     font-weight: normal;
@@ -78,7 +88,9 @@
 
 
 #created_title::after,
-#attending_title::after {
+#attending_title::after,
+#upcoming_title::after,
+#popular_title::after{
     content: attr(data-text);
     font-weight: bold;
     visibility: hidden;

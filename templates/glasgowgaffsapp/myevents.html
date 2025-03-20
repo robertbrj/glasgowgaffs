@@ -7,7 +7,7 @@
 <div id="events_container">
     <h1 id="title">My Events</h1>
     
-    <!-- Toggle Switch -->
+    <!-- Created/Attending Toggle Switch -->
     <div class="toggle_wrapper">
         <h2 id="created_title" class="bold">Created Events</h2>
         <label class="toggle-container">
@@ -15,6 +15,15 @@
             <span class="toggle-label"></span>
         </label>
         <h2 id="attending_title">Attending Events</h2>
+    </div>
+    <!-- Upcoming/Popular Events Toggle Switch -->
+    <div class="toggle_wrapper">
+        <h2 id="upcoming_title" class="bold">Upcoming Events</h2>
+        <label class="toggle-container">
+            <input type="checkbox" id="sortToggle">
+            <span class="toggle-label"></span>
+        </label>
+        <h2 id="popular_title">Popular Events</h2>
     </div>
 
     <!-- Create Events Button -->
@@ -31,6 +40,7 @@
                 <p>Location: {{ event.location }}</p>
                 <p>Date: {{ event.date }}</p>
                 <p>Time: {{ event.time }}</p>
+                <p>Attendees: {{ event.attendees.count}}</p>
                 <p>{{ event.description }}</p>
             </div>
         {% empty %}
@@ -47,6 +57,7 @@
                 <p>Location: {{ event.location }}</p>
                 <p>Date: {{ event.date }}</p>
                 <p>Time: {{ event.time }}</p>
+                <p>Attendees: {{ event.attendees.count}}</p>
                 <p>{{ event.description }}</p>
             </div>
         {% empty %}
@@ -57,4 +68,5 @@
 </div>
 
 <script src="{% static 'javascript/slider.js' %}"></script>
+<script src="{% static 'javascript/filter.js' %}"></script>
 {% endblock %}
