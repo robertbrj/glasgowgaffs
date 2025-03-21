@@ -11,17 +11,17 @@
 .toggle_wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
     margin: 20px 0;
     gap: 5px;
+    text-align: left;
 }
 
 .toggle-container {
     display: flex;
     align-items: center;
-    justify-content: center;
     position: relative;
     width: 60px;
+
 }
 
 .toggle-container input {
@@ -130,7 +130,6 @@
 
 .button-container {
     display: flex;
-    justify-content: center;
     margin-bottom: 20px;
 }
 
@@ -147,9 +146,6 @@
     border: none;
     transition: all 0.3s ease;
     text-decoration: none;
-
-    text-align: center;
-    margin: 0 auto;
 }
 
 /* hover effect for the create event button*/
