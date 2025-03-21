@@ -8,28 +8,20 @@
     display: block;
 }
 
-#events_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
-}
-
 .toggle_wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
     margin: 20px 0;
     gap: 5px;
+    text-align: left;
 }
 
 .toggle-container {
     display: flex;
     align-items: center;
-    justify-content: center;
     position: relative;
     width: 60px;
+
 }
 
 .toggle-container input {
@@ -100,11 +92,8 @@
 
 .event_grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    max-width: 900px;
-    margin: 0 auto;
-    justify-content: center;
 
 }
 
@@ -112,32 +101,35 @@
     display: none;
 }
 
-.event_card {
-    background-color: #2D0B48;
-    padding: 15px;
-    color: white;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    cursor: pointer;
+.event {
+    display: block;
+    height: 100%;
     text-decoration: none;
-    max-width: 350px;
-    width: 90%;
-    margin: 10px auto;
 }
 
-.event_card:hover {
+.event_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     background-color: #2D0B48;
     padding: 12px;
     color: white;
     border-radius: 12px;
     transition: all 0.3s ease;
     cursor: pointer;
+}
+
+.event_card:hover {
+    transform: scale(1.03);
+    background-color: white;
+    color: #2D0B48;
+    transition: all 0.3s ease;
     text-decoration: none;
 }
 
 .button-container {
     display: flex;
-    justify-content: center;
     margin-bottom: 20px;
 }
 
@@ -154,12 +146,9 @@
     border: none;
     transition: all 0.3s ease;
     text-decoration: none;
-
-    text-align: center;
-    margin: 0 auto;
 }
 
-/* hover effect ofr the create event button*/
+/* hover effect for the create event button*/
 #create-event:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -169,19 +158,19 @@
 
 /* generic media styling*/
 @media (max-width: 1024px) {
-    .event_section {
+    .event_grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .event_section {
+    .event_grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
-    .event_section {
+    .event_grid {
         grid-template-columns: repeat(1, 1fr);
     }
 }
@@ -190,3 +179,4 @@
 #events_container a {
     text-decoration: none !important;
 }
+

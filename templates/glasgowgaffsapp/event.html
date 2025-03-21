@@ -12,7 +12,9 @@
         <div id="details">
             <div class="detail-group">
                 <span class="detail-label">Location: </span>
-                <span class="detail"> {{ event.location.address }}</span>
+                <span class="detail" id="event-location" data-address="{{ event.location.address }}">
+                    {{ event.location.address }}
+                </span>
             </div>
 
             <div class="detail-group">
@@ -42,12 +44,10 @@
         <div id="map"></div>
     </div>
 
-
     {% if user != event.created_by %}
     <div id="attend">
         {% if user.is_authenticated %}
-        <!-- If logged in -->
-        <button id="attend-button">
+        <button id="attend-button" data-event-id="{{ event.id }}" data-csrf-token="{{ csrf_token }}">
             {% if user in event.attendees.all %}
             Unattend!
             {% else %}
@@ -55,7 +55,6 @@
         </button>
         {% endif %}
         {% else %}
-        <!-- If not logged in -->
         <br><br><br>
         <a href="{% url 'glasgowgaffsapp:login' %}" id="log-in">Log in to Attend!</a>
         {% endif %}
@@ -63,48 +62,9 @@
     {% endif %}
 </section>
 
-<script>
-    function initMap() {
-        var address = "{{ event.location.address }}";
-        var geocoder = new google.maps.Geocoder();
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: { lat: 55.8730, lng: -4.2890 }
-        });
-
-        geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status === 'OK') {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-            } else {
-                alert('Geocode was not successful: ' + status);
-            }
-        });
-    }
-</script>
-
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIInzkFQnPkvvLdbUsZX8Yiz5xOXxeQAU&callback=initMap">
-    </script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-<script>
-    $('#attend-button').click(function () {
-        var eventId = "{{event.id}}";
-        $.post(`/glasgowgaffsapp/event/${eventId}/toggle_attendance/`, {
-            'csrfmiddlewaretoken': '{{ csrf_token }}'
-        }, function (response) {
-            console.log("Attendance changed:", response);
-        }).fail(function () {
-            console.log("Error processing request.");
-        });
-    });
-</script>
-
+<script src="{% static 'javascript/event.js' %}"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIInzkFQnPkvvLdbUsZX8Yiz5xOXxeQAU&callback=initMap"></script>
 <script src="{% static 'javascript/refresh.js' %}"></script>
 
 {% endblock %}

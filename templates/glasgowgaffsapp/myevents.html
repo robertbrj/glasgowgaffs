@@ -6,7 +6,7 @@
     
 <div id="events_container">
     <h1 id="title">My Events</h1>
-    
+
     <!-- Created/Attending Toggle Switch -->
     <div class="toggle_wrapper">
         <h2 id="created_title" class="bold">Created Events</h2>
@@ -43,10 +43,10 @@
                 <p>Attendees: {{ event.attendees.count}}</p>
                 <p>{{ event.description }}</p>
             </div>
+        </a>
         {% empty %}
             <p>No events have been created</p>
         {% endfor %}
-        </a>
     </div>
     <!-- Attending Events Section -->
     <div id="attending_events" class="event_grid hidden">

@@ -126,6 +126,18 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+#Email setup
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587  
+EMAIL_USE_TLS = True 
+EMAIL_HOST_USER = 'glasgowgaffs@gmail.com'
+EMAIL_HOST_PASSWORD = 'bbya pxud bwjp jdgn' #App password made by google to allow Django to access Gmail
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = ''
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const attendingTitle = document.getElementById("attending_title");
 
     // default state: Created Events visible, Attending Events hidden
-    createdEvents.style.display = "flex";
+    createdEvents.style.display = "grid";
     attendingEvents.style.display = "none";
     createdTitle.classList.add("bold");
     attendingTitle.classList.remove("bold");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (this.checked) {
             // shows attending events, hides created events
-            attendingEvents.style.display = "flex";
+            attendingEvents.style.display = "grid";
             createdEvents.style.display = "none";
 
             // applies bold styling
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             createdTitle.classList.remove("bold");
         } else {
             // shows created events, hides attending events
-            createdEvents.style.display = "flex";
+            createdEvents.style.display = "grid";
             attendingEvents.style.display = "none";
 
             // applies bold styling
