@@ -14,10 +14,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     
     function showPopupForm() {
         document.getElementById("popup-form-container").style.display = "block";
+        document.getElementById('contact-us-button').classList.add('no-hover');
       };
       
       function hidePopupForm() {
         document.getElementById("popup-form-container").style.display = "none";
+        document.getElementById('contact-us-button').classList.remove('no-hover');
       };
     
       document.getElementById("send-email").addEventListener("click",()=>{

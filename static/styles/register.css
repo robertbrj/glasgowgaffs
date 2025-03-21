@@ -58,3 +58,18 @@ body {
     background-color: white;
     color: #2D0B48;
 }
+
+
+.sign-up {
+    color: white;
+    font-size: 17px;
+    font-family: "Encode Sans Semi Condensed", sans-serif;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.sign-up:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: #2D0B48;
+}

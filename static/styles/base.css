@@ -93,11 +93,17 @@
     color: white;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     background: linear-gradient(45deg, #69329C, #844dd5, #41136a);
     background-size: 400% 400%;
     animation: gradientAnimation 8s ease infinite;
     font-family: "Encode Sans Semi Condensed", sans-serif;
+    min-height: 100%;
 }
 
 @keyframes gradientAnimation {
@@ -128,6 +134,7 @@ h2,
     box-sizing: border-box;
 }
 
+/* Tablet (768px) */
 @media screen and (max-width: 768px) {
 
     #home-button {
@@ -149,6 +156,7 @@ h2,
 
 }
 
+/* Small Desktop (992px) */
 @media screen and (max-width: 992px) {
 
     #home-button {
@@ -177,21 +185,44 @@ h2,
     color: white;
     border: none;
     padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 5px;
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 12px;
     cursor: pointer;
     z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
+#contact-us-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: white;
+    color: #2D0B48;
+}
 
+#contact-us-button.no-hover:hover {
+    transform: none;          
+    background-color: white;
+    color: #2D0B48;           
+    cursor: default;           
+}
 
 .form-row {
     margin-bottom: 10px;
 }
 
-.form-input {
+.form-input,
+textarea,
+select {
     display: block;
     width:100%;
+    font-family: "Encode Sans Semi Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #2D0B48;
+    border: none;
+    color: white;
 }
 
 .form-error {
@@ -200,13 +231,20 @@ h2,
 
 
 #send-email{
+    color: white;
     background-color: #2D0B48;
-    color:#ffffff;
-    width:80px;
-    height:30px;
+    font-size: 16px;
+    font-family: "Saira Condensed", sans-serif;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 #send-email:hover{
+    cursor: pointer;
+    transform: scale(1.1);
     background-color:#69329C;
 }
 
@@ -218,6 +256,7 @@ h2,
     top: 10px; 
     right: 0px; 
     border: none;
+    font-family: "Encode Sans Semi Condensed", sans-serif;
     font-size: 14px;
     cursor: pointer;
     border-color: #000000;
@@ -241,6 +280,17 @@ h2,
     justify-content: center;
     align-items: center;
     z-index: 1000; 
+    animation: popup 0.1s ease forwards; 
+}
+
+@keyframes popup {
+    0% {
+        transform: translateY(100%); 
+        visibility: visible;
+    }
+    100% {
+        transform: translateY(0); 
+    }
 }
 
 #popup-form-container form {
@@ -248,16 +298,75 @@ h2,
     padding: 20px;
     border-radius: 5px;
     width: 400px;
-    height:500px;
+    height:410px;
     max-width: 500px;
     margin: 10px auto;
 }
 
 
 #contact-form-message {
+    font-family: "Encode Sans Semi Condensed", sans-serif;
     min-height: 100px;
     min-width: 200px;
     max-height: 300px;
     max-width:350px
 
+}
+
+/* Tablet (768px) */
+@media screen and (max-width: 768px) {
+    #contact-us-button {
+        padding: 12px 18px;
+        font-size: 20px;
+    }
+
+    #send-email {
+        font-size: 15px;
+        padding: 0.5rem;
+    }
+
+    #close-popup {
+        font-size: 13px;
+        padding: 7px 13px;
+    }
+
+    #popup-form-container form {
+        width: 80%; 
+        max-width: 90%;
+        height: auto; 
+    }
+
+    #contact-form-message {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Small Desktop (992px) */
+@media screen and (max-width: 992px) {
+    #contact-us-button {
+        padding: 12px 20px;
+        font-size: 22px;
+    }
+
+    #send-email {
+        font-size: 16px;
+        padding: 0.5rem;
+    }
+
+    #close-popup {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    #popup-form-container form {
+        width: 70%; /* Adjust form size for larger tablets */
+        max-width: 80%;
+        height: auto; /* Adjust height for medium screens */
+    }
+
+    #contact-form-message {
+        min-width: 100%;
+        max-width: 100%;
+    }
 }
