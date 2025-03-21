@@ -6,6 +6,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
+    <script src="{% static 'javascript/contactus.js' %}"></script>
     <title>Glasgow Gaffs</title>
 </head>
 
@@ -35,16 +36,39 @@
             <span id="pipe"> | </span>
             <a class="auth-button" href="{% url 'glasgowgaffsapp:login' %}">Log In</a>
             {% endif %}
-
-            <span id="pipe"> | </span>
-            <a class="auth-button" href="{% url 'glasgowgaffsapp:contactus' %}">✆</a>
-
         </div>
     </div>
+
+         <!-- Contact Us -->
+    <button id="contact-us-button">Contact Us✆</button>
+
     <div id="body-block">
         {% block body_block %}
         {% endblock %}
     </div>
+
+    <div id="popup-form-container" style="display:none;">
+        <form id="contact-form" method="POST" action="{% url 'glasgowgaffsapp:contactus' %}">
+            {% csrf_token %}
+            <div class="form-row form-error" style="display:none;"></div>
+            <div class="form-row">
+              <label for="contact-form-name">Name:</label>
+              <input id="contact-form-name" class="form-input" type="text" name="name" required>
+            </div>
+            <div class="form-row">
+              <label for="contact-form-email">Email:</label>
+              <input id="contact-form-email" class="form-input" type="email" name="email" required>
+            </div>
+            <div class="form-row">
+              <label for="contact-form-message">Message:</label>
+              <textarea id="contact-form-message" class="form-input" name="message" required></textarea>
+            </div>
+            <button type="submit" id="send-email">Send Email</button>
+            <button type="button" id="close-popup"><b>X</b></button>
+          </form>
+        
+        </div>
+
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from glasgowgaffsapp.forms import UserForm,EventForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.shortcuts import redirect
 from glasgowgaffsapp.models import Event
 from django.shortcuts import get_object_or_404   
+from django.core.mail import send_mail
 
 
 def index(request):
@@ -85,8 +86,29 @@ def user_logout(request):
     return redirect(reverse('glasgowgaffsapp:index'))
 
 def contact_us(request):
-    context_dict = {'boldmessage': ''}
-    return render(request, 'glasgowgaffsapp/contact.html', context=context_dict)
+   if request.method=="POST":
+    name=request.POST.get("name")
+    email= request.POST.get("email")
+    message=request.POST.get("message")
+
+    subject=f"From {email}"
+    body=f"""
+    Name: {name}
+    
+    
+    Message:{message}"""
+
+    send_mail(
+        subject,
+        body,
+        f"{email}",
+    ["glasgowgaffs@gmail.com"],
+    fail_silently=False,
+    )
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
 
 def events(request):
     all_events = Event.objects.all()
