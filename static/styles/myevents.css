@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600&display=swap');
-
 #title {
     color: white;
     font-size: 48px;
@@ -29,7 +27,7 @@
 }
 
 .toggle-label {
-   position: relative;
+    position: relative;
     display: inline-block;
     width: 50px;
     height: 25px;
@@ -63,7 +61,7 @@
 #created_title,
 #attending_title,
 #upcoming_title,
-#popular_title{
+#popular_title {
     color: grey;
     font-size: 30px;
     font-weight: normal;
@@ -82,7 +80,7 @@
 #created_title::after,
 #attending_title::after,
 #upcoming_title::after,
-#popular_title::after{
+#popular_title::after {
     content: attr(data-text);
     font-weight: bold;
     visibility: hidden;
@@ -179,4 +177,3 @@
 #events_container a {
     text-decoration: none !important;
 }
-
