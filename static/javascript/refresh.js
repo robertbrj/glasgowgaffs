@@ -1,5 +1,7 @@
-document.getElementById("attend-button").addEventListener("click", function() {
-    setTimeout(function() {
-        location.reload();  
-    }, 50);
-});
+// reloads the button for event
+const attendBtn = document.getElementById("attend-button");
+if (attendBtn) {
+    attendBtn.addEventListener("click", function () {
+        setTimeout(() => location.reload(), 50);
+    });
+}
