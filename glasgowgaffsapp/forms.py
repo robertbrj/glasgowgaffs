@@ -4,6 +4,11 @@ from glasgowgaffsapp.models import Event, Location
 from django.utils import timezone
 
 class UserForm(forms.ModelForm):
+    """
+        form used for registering a new user.
+        includes username, email, and password with styled widgets
+        also checks for existing email during validation
+    """
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'})
     )
@@ -17,6 +22,10 @@ class UserForm(forms.ModelForm):
         }
 
     def clean_email(self):
+        """
+            form for creating or editing an Event
+            includes fields for title, description, date, time, and location
+        """
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError("A user with this email already exists.")
@@ -25,6 +34,10 @@ class UserForm(forms.ModelForm):
     
 
 class EventForm(forms.ModelForm):
+    """
+        form for creating or editing an Event.
+        includes fields: title, description, date, time and location
+    """
     class Meta:
         model = Event
         fields = ['title', 'description', 'date', 'time', 'location']
@@ -37,6 +50,9 @@ class EventForm(forms.ModelForm):
         }
 
     def clean_date(self):
+        """
+            validates that the selected event date is not in the past
+        """
         event_date = self.cleaned_data.get('date')
         if event_date and event_date < timezone.localdate():
             raise forms.ValidationError("The event date cannot be in the past.")
