@@ -2,17 +2,21 @@
 {% load static %}
 
 {% block body_block %}
+<!-- loads styling from create.css -->
 <link rel="stylesheet" href="{% static 'styles/create.css' %}" />
 
+<!-- form for creating a new event -->
 <form method="post">
     {% csrf_token %}
 
     <h1 id="title">Create Event</h1>
 
+    <!-- Event Title -->
     <div class="form-group">
         {{ form.title }}
     </div>
 
+    <!-- Event Date with error display -->
     <div class="form-group">
         {{ form.date }}
 
@@ -21,17 +25,19 @@
         {% endif %}
     </div>
 
+    <!-- Event Time -->
     <div class="form-group">
         {{ form.time }}
     </div>
+    <!-- Location dropdown -->
     <div class="form-group">
         {{ form.location }}
     </div>
-
+    <!-- Event Description -->
     <div class="form-group">
         {{ form.description }}
     </div>
-
+    <!-- Submit button -->
     <input id="create-button" type="submit" name="submit" value="Let's get partying!" />
 </form>
 {% endblock %}

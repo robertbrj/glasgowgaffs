@@ -2,14 +2,20 @@
 {% load static %}
 
 {% block body_block %}
+<!-- loads styling from event.css -->
 <link rel="stylesheet" href="{% static 'styles/event.css' %}" />
 
+<!-- main content section showing details of a single event -->
 <section id="main">
+    <!-- redirects the user back to Events page -->
     <a href="{% url 'glasgowgaffsapp:events' %}" id="back-button">← Back to Events</a>
+
+    <!-- Event title -->
     <h1 id="title">{{ event.title }}</h1>
 
     <div id="content">
         <div id="details">
+            <!-- Location with embedded address for javascript use -->
             <div class="detail-group">
                 <span class="detail-label">Location: </span>
                 <span class="detail" id="event-location" data-address="{{ event.location.address }}">
@@ -17,36 +23,44 @@
                 </span>
             </div>
 
+            <!-- Date -->
             <div class="detail-group">
                 <span class="detail-label">Date: </span>
                 <span class="detail"> {{ event.date }}</span>
             </div>
 
+            <!-- Time -->
             <div class="detail-group">
                 <span class="detail-label">Time:</span>
                 <span class="detail"> {{ event.time }}</span>
             </div>
 
+             <!-- Number of attendees -->
             <div class="detail-group">
                 <span class="detail-label">Party-goers:</span>
                 <span class="detail"> {{ event.attendees.count }}</span>
             </div>
 
+            <!-- Host of the event -->
             <div class="detail-group">
                 <span class="detail-label">Party host:</span>
                 <span class="detail"> {{ event.created_by }}</span>
             </div>
 
+            <!-- Description -->
             <br>
             <span id="event-description">{{ event.description }} </span>
         </div>
 
+        <!-- Google Map area centered by javascript -->
         <div id="map"></div>
     </div>
 
+    <!-- show attend button only to users who are not the event creator -->
     {% if user != event.created_by %}
     <div id="attend">
         {% if user.is_authenticated %}
+        <!-- toggle attendance button -->
         <button id="attend-button" data-event-id="{{ event.id }}" data-csrf-token="{{ csrf_token }}">
             {% if user in event.attendees.all %}
             Unattend!
@@ -55,6 +69,7 @@
         </button>
         {% endif %}
         {% else %}
+        <!-- if not logged in, redirect user to login page -->
         <br><br><br>
         <a href="{% url 'glasgowgaffsapp:login' %}" id="log-in">Log in to Attend!</a>
         {% endif %}
@@ -62,9 +77,13 @@
     {% endif %}
 </section>
 
+<!-- jQuery for POST request -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- Local javascript to initialise map and handle attendance -->
 <script src="{% static 'javascript/event.js' %}"></script>
+<!-- Google Maps API key -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIInzkFQnPkvvLdbUsZX8Yiz5xOXxeQAU&callback=initMap"></script>
+<!-- handling the event reload fucntion -->
 <script src="{% static 'javascript/refresh.js' %}"></script>
 
 {% endblock %}

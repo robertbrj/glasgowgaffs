@@ -2,25 +2,27 @@
 {% load static %}
 
 {% block body_block %}
+<!-- loads styling from register.css -->
 <link rel="stylesheet" href="{% static 'styles/register.css' %}" />
 
+<!-- login form -->
 <form id="user-form" method="post" action="{% url 'glasgowgaffsapp:login' %}">
     {% csrf_token %}
     <h1 id="title">Log In</h1>
 
-
+    <!-- username field -->
     <div class="form-group">
         <input placeholder="Username" type="text" name="username" />
     </div>
-
+    <!-- password field -->
     <div class="form-group">
         <input placeholder="Password" type="password" name="password" />
     </div>
-
+    <!-- redirects user to the registration/sign up page  -->
     <div>
         <a class = "sign-up" href="{% url 'glasgowgaffsapp:register' %}">Don't have an account? Sign up now!</a>
     </div>
-    
+    <!-- submit button -->
     <input id="register-button" type="submit" value="Log In" />
 </form>
 

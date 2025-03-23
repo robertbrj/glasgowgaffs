@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block body_block %}
+<!-- loads styling from myevents.css -->
 <link rel="stylesheet" href="{% static 'styles/myevents.css' %}" />
     
 <div id="events_container">
@@ -35,6 +36,7 @@
     <div id="created_events" class="event_grid">
         {% for event in created_events %}
         <a class="event" href="{% url 'glasgowgaffsapp:event' event.id %}">
+            <!-- Event details -->
             <div class="event_card">
                 <h2>{{ event.title }}</h2>
                 <p>Location: {{ event.location }}</p>
@@ -45,6 +47,7 @@
             </div>
         </a>
         {% empty %}
+            <!-- condition if user has not created any events  -->
             <p>No events have been created</p>
         {% endfor %}
     </div>
@@ -52,6 +55,7 @@
     <div id="attending_events" class="event_grid hidden">
     {% for event in attending_events %}
         <a class="event" href="{% url 'glasgowgaffsapp:event' event.id %}">
+            <!-- Event details -->
             <div class="event_card" >
                 <h2>{{ event.title }}</h2>
                 <p>Location: {{ event.location }}</p>
@@ -61,12 +65,13 @@
                 <p>{{ event.description }}</p>
             </div>
         {% empty %}
+            <!-- condition if user has not attended any events  -->
             <p>You are not attending and events.</p>
         {% endfor %}
         </a>
     </div>
 </div>
-
+<!-- page uses dedicated javascript files for the slider and filters -->
 <script src="{% static 'javascript/slider.js' %}"></script>
 <script src="{% static 'javascript/filter.js' %}"></script>
 {% endblock %}

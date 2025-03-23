@@ -2,29 +2,33 @@
 {% load static %}
 
 {% block body_block %}
+<!-- loads styling from register.css -->
 <link rel="stylesheet" href="{% static 'styles/register.css' %}" />
 
 {% if registered %}
+<!-- displayed upon successful registration -->
 <span id="success-message">Thanks for signing up!</span>
 {% else %}
+<!-- user registration form -->
 <form id="user-form" method="post" action="{% url 'glasgowgaffsapp:register' %}" enctype="multipart/form-data">
 
     {% csrf_token %}
 
     <h1 id="title">Sign up</h1>
 
+    <!-- username input -->
     <div class="form-group">
         {{ user_form.username }}
     </div>
-
+    <!-- email input -->
     <div class="form-group">
         {{ user_form.email }}
     </div>
-
+    <!-- password input -->
     <div class="form-group">
         {{ user_form.password }}
     </div>
-
+    <!-- submit button -->
     <input id="register-button" type="submit" name="submit" value="Sign me up!" />
 </form>
 {% endif %}

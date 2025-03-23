@@ -2,17 +2,25 @@
 {% load static %}
 
 {% block body_block %}
+<!-- loads styling from index.css -->
 <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+
+<!-- loads responsive banner images for smaller screens -->
 <img id="clyderesponsiveimg" src="{% static 'images/image1.png' %}" alt="Picture of River Clyde" />
 <div id="main">
+    <!-- image for homepage decoration  -->
     <img id="clydeimg" src="{% static 'images/image1.png' %}" alt="Picture of River Clyde" />
 
     <div id="about-section">
         <h1 id="title">Glasgow Gaffs</h1>
+        <!-- greeting for logged-in users -->
         {% if user.is_authenticated %}
         <h3 id="greeting">Welcome, {{ user.username }}!</h3>
         {% endif %}
-        <h4 id="about-text">Glasgow’s got a legendary nightlife, but let’s be real—sometimes the best nights aren’t in
+        <!-- App description -->
+        <h4 id="about-text">
+            <!-- platform introduction -->
+            Glasgow’s got a legendary nightlife, but let’s be real—sometimes the best nights aren’t in
             clubs, they’re in flats, living rooms, and back gardens. That’s where we come in.
 
             <br>
@@ -33,9 +41,11 @@
 
             See you at the next gaff. 🍻🔥
         </h4>
+        <!-- button linking to events page -->
         <a href="{% url 'glasgowgaffsapp:events' %}" id="see-events">See Events</a>
     </div>
 
+    <!-- image for homepage decoration  -->
     <img id="georgesqimg" src="{% static 'images/image2.png' %}" alt="Picture of George Square" />
 </div>
 {% endblock %}

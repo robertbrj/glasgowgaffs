@@ -2,24 +2,28 @@
 {% load static %}
 
 {% block body_block %}
+<!-- loads styling from events.css -->
 <link rel="stylesheet" href="{% static 'styles/events.css' %}" />
+
+<!-- section showing grid of all events -->
 <section id="main">
     <h1 id="title">Events</h1>
 
     <div id="event-grid">
 
         {% for event in events %}
+        <!-- each event on events page links to its detail on event page -->
         <a class="event" href="{% url 'glasgowgaffsapp:event' event.id %}">
             <h3 id="event-title">{{ event.title }}</h3>
 
             <br>
-
+            <!-- displays the location, date and time of the event-->
             <h4 id="location">Location: {{ event.location }}</h4>
             <h4 id="date">Date: {{ event.date }}</h4>
             <h4 id="time">Time: {{ event.time }}</h4>
 
             <br>
-
+            <!-- displays the event description -->
             <span id="event-description">{{ event.description }} </span>
         </a>
         {% endfor %}
