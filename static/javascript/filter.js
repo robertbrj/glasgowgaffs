@@ -1,16 +1,21 @@
+// waits until the DOM is fully loaded before initialising the toggles and sortings
 document.addEventListener("DOMContentLoaded", function () {
+    // Created Events vs Attending Events
     const eventTypeToggle = document.getElementById("eventToggle");
+    // Upcoming Events vs Popular Events
     const sortToggle = document.getElementById("sortToggle");
     const createdEventsContainer = document.getElementById("created_events");
     const attendingEventsContainer = document.getElementById("attending_events");
     const upcomingTitle = document.getElementById("upcoming_title");
     const popularTitle = document.getElementById("popular_title");
 
+    // toggle between Created and Attending events
     eventTypeToggle.addEventListener("change", updateEvents);
+    // toggle between Upcoming and Popular events
     sortToggle.addEventListener("change", function () {
         console.log("Sort Toggle Switched! Checked:", this.checked);
 
-         // toggle switch swaps the bold effect
+         // toggle switch swaps the bold effect, highlights current filter mode
         if (this.checked) {
             // Popular Events selected, filter based on number of attendees
             popularTitle.classList.add("bold");
@@ -97,6 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return hours * 60 + minutes; // converts hours and minutes to a single comparable value
     }
-    // ensures sorting applies immediately on page load/reload
+    // ensures sorting applies immediately on initial page load/reload
     window.addEventListener("load", updateEvents);
 });

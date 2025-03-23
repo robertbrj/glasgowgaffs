@@ -1,3 +1,4 @@
+// initialises Google Maps using the event address from the dataset
 window.initMap = function () {
 
     var locationElem = document.getElementById('event-location');
@@ -14,7 +15,7 @@ window.initMap = function () {
         center: { lat: 55.8730, lng: -4.2890 }
     });
 
-
+    // geocodes the address and places the map marker on success
     geocoder.geocode({ address: address }, function (results, status) {
         if (status === "OK") {
             map.setCenter(results[0].geometry.location);
@@ -22,13 +23,14 @@ window.initMap = function () {
                 map: map,
                 position: results[0].geometry.location
             });
+            // alert prompt for unsuccessful geocoding
         } else {
             alert("Geocode was not successful: " + status);
         }
     });
 };
 
-
+// handles the attendance toggle through AJAX POST on cutton click
 $(document).ready(function () {
     $("#attend-button").click(function () {
         var eventId = $(this).data("event-id");

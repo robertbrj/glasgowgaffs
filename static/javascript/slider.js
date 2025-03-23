@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
     createdTitle.classList.add("bold");
     attendingTitle.classList.remove("bold");
 
-    // toggle switch swaps the bold effect
+    // toggle switch swaps the bold effect and switches between Created Events amd Attending Events
     toggleSwitch.addEventListener("change", function () {
         console.log("Toggle switched! Checked:", this.checked);
 
         if (this.checked) {
-            // shows attending events, hides created events
+            // shows attending events
             attendingEvents.style.display = "grid";
             createdEvents.style.display = "none";
 
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             attendingTitle.classList.add("bold");
             createdTitle.classList.remove("bold");
         } else {
-            // shows created events, hides attending events
+            // shows created events
             createdEvents.style.display = "grid";
             attendingEvents.style.display = "none";
 
