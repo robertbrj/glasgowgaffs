@@ -1,20 +1,24 @@
 #title {
+    /* title styling for my events page */
     color: white;
     font-size: 48px;
     font-weight: 700;
     text-align: left;
     display: block;
 }
-
+/* -------------------- toggle slider base -------------------- */
+/* container for iOS-style toggle switch */
 .toggle_wrapper {
+    /* container row for toggle and labels */
     display: flex;
     align-items: center;
     margin: 20px 0;
     gap: 5px;
     text-align: left;
 }
-
+/* -------------------- toggle switch styling -------------------- */
 .toggle-container {
+    /* switch container width + flex centering */
     display: flex;
     align-items: center;
     position: relative;
@@ -23,10 +27,12 @@
 }
 
 .toggle-container input {
+    /* hide default checkbox */
     display: none;
 }
 
 .toggle-label {
+    /* general styling for toggle label */
     position: relative;
     display: inline-block;
     width: 50px;
@@ -38,6 +44,7 @@
 }
 
 .toggle-label::before {
+    /* IOS slider knob styling before clicking */
     content: "";
     position: absolute;
     width: 20px;
@@ -51,17 +58,20 @@
 }
 
 .toggle-container input:checked+.toggle-label {
+    /* change slider background when toggled */
     background-color: #34c759;
 }
 
 .toggle-container input:checked+.toggle-label::before {
+    /* move slider knob when toggled */
     transform: translate(25px, -50%);
 }
-
+/* -------------------- toggle labels -------------------- */
 #created_title,
 #attending_title,
 #upcoming_title,
 #popular_title {
+    /* shared styling for toggle label text */
     color: grey;
     font-size: 30px;
     font-weight: normal;
@@ -73,6 +83,7 @@
 }
 
 .bold {
+    /* white + bold when selected */
     color: white !important;
 }
 
@@ -81,6 +92,7 @@
 #attending_title::after,
 #upcoming_title::after,
 #popular_title::after {
+    /* shared styling ensuring width consistency during font weight changes */
     content: attr(data-text);
     font-weight: bold;
     visibility: hidden;
@@ -88,7 +100,9 @@
     white-space: nowrap;
 }
 
+/* -------------------- event cards grid -------------------- */
 .event_grid {
+    /* general styling for card grid layout */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
@@ -96,16 +110,20 @@
 }
 
 .hidden {
+    /* hide inactive card containers */
     display: none;
 }
 
+/* -------------------- individual event card -------------------- */
 .event {
+    /* styling allowing event card to be clickable */
     display: block;
     height: 100%;
     text-decoration: none;
 }
 
 .event_card {
+    /* general styling for the event card  */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -119,6 +137,7 @@
 }
 
 .event_card:hover {
+    /* hover effect for the event card  */
     transform: scale(1.03);
     background-color: white;
     color: #2D0B48;
@@ -126,13 +145,16 @@
     text-decoration: none;
 }
 
+/* -------------------- Create New Event Button -------------------- */
 .button-container {
+    /* wrapper for alignment */
     display: flex;
     margin-bottom: 20px;
 }
 
-/* styling for create event button */
+
 #create-event {
+    /* general styling for create event button */
     display: block;
     font-family: 'Saira Condensed', sans-serif;
     font-size: 24px;
@@ -146,15 +168,15 @@
     text-decoration: none;
 }
 
-/* hover effect for the create event button*/
 #create-event:hover {
+    /* hover effect for the create event button*/
     cursor: pointer;
     transform: scale(1.1);
     background-color: white;
     color: #2D0B48;
 }
 
-/* generic media styling*/
+/* -------------------- responsive grid adjustments -------------------- */
 @media (max-width: 1024px) {
     .event_grid {
         grid-template-columns: repeat(3, 1fr);
@@ -173,7 +195,8 @@
     }
 }
 
-/* remove inherent underlining */
+/* -------------------- link styling override -------------------- */
 #events_container a {
+    /* remove inherent underlining */
     text-decoration: none !important;
 }

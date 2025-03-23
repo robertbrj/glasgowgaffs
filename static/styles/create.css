@@ -1,4 +1,5 @@
 #title {
+    /* title styling for create page */
     color: white;
     font-size: 48px;
     font-weight: 700;
@@ -8,17 +9,20 @@
 }
 
 .form-group p {
+    /* error message styling */
     color: red;
     font-weight: 900;
 }
 
 form {
+    /* aligns the form content in the center */
     text-align: center;
 }
 
 .form-group input,
 textarea,
 select {
+    /* shared styling for input, textarea and select fields */
     font-family: "Encode Sans Semi Condensed", sans-serif;
     font-size: 16px;
     font-weight: 700;
@@ -41,6 +45,7 @@ select {
 }
 
 #create-button {
+    /* general styling for create button */
     font-family: 'Saira Condensed', sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -56,14 +61,16 @@ select {
 }
 
 #create-button:hover {
+    /* hover effect for create button  */
     cursor: pointer;
     transform: scale(1.1);
     background-color: white;
     color: #2D0B48;
 }
 
-/* styling changes to the icons */
+/* -------------------- select + date/time styling -------------------- */
 select {
+    /* dropdown styling override */
     background-color: #2D0B48 !important;
     color: white !important;
     border: none;
@@ -75,10 +82,12 @@ select {
 
 
 select::-ms-expand {
+    /* remove default arrow in IE */
     display: none;
 }
 
 select option {
+    /* option text inside select dropdown */
     background-color: #2D0B48;
     color: white;
 }
@@ -86,6 +95,7 @@ select option {
 
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
+    /* make date/time icons white */
     filter: invert(1);
     cursor: pointer;
 }

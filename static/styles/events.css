@@ -1,15 +1,16 @@
 #title {
+    /* title styling for events page */
     color: white;
     font-size: 48px;
     font-weight: 700;
 }
-
+/* -------------------- event grid layout -------------------- */
 #event-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 }
-
+/* -------------------- Responsive Grid -------------------- */
 /* Medium screens: 3 columns */
 @media (max-width: 1024px) {
     #event-grid {
@@ -35,8 +36,9 @@
     }
 }
 
-
+/* -------------------- event card styling -------------------- */
 .event {
+    /* general styling for event cards */
     background-color: #2D0B48;
     padding: 12px;
     color: white;
@@ -47,6 +49,7 @@
 }
 
 .event:hover {
+    /* hover effect for event cards */
     background-color: white;
     color: #2D0B48;
     transform: scale(1.05);

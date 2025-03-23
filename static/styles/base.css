@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600&display=swap');
-
+/* -------------------- navbar styling -------------------- */
 #nav-bar {
+    /* main navigation bar container */
     width: 100%;
     background-color: #2D0B48;
     padding: 1rem;
@@ -12,6 +13,7 @@
 }
 
 #body-block {
+    /* body block styling  */
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 5%;
@@ -19,6 +21,7 @@
 }
 
 #home-button {
+    /* home button in navbar */
     background-color: transparent;
     border: none;
     color: white;
@@ -30,16 +33,19 @@
 }
 
 #home-button:hover {
+    /* home button hover effect on navbar */
     transform: scale(1.1);
     color: #69329C;
 }
 
 #home-area {
+    /* home area dimensions */
     display: flex;
     align-items: center;
 }
 
 .auth-button {
+    /* general styling for auth button */
     background-color: transparent;
     border: none;
     color: white;
@@ -51,6 +57,7 @@
 }
 
 #events-button {
+    /* events button in navbar */
     background-color: transparent;
     border: none;
     color: white;
@@ -63,22 +70,26 @@
 }
 
 #events-button:hover {
+    /* hover effect for events button */
     cursor: pointer;
     color: #69329C;
 }
 
 .auth-button:hover {
+     /* general styling for hover effect */
     cursor: pointer;
     color: #69329C;
 }
 
 #pipe {
+     /* visual divider (|) in navbar */
     color: white;
     font-size: 24px;
     font-weight: 700;
 }
 
 .user-button {
+     /* general styling for user button */
     background-color: transparent;
     border: none;
     color: white;
@@ -90,16 +101,19 @@
 }
 
 .user-button:hover {
+     /* general styling for user button hover effect */
     color: white;
 }
-
+/* -------------------- body and global styles -------------------- */
 html,
 body {
+    /* full page layout and animated background */
     height: 100%;
     margin: 0;
 }
 
 body {
+    /* general styling for body */
     background: linear-gradient(45deg, #69329C, #844dd5, #41136a);
     background-size: 400% 400%;
     animation: gradientAnimation 8s ease infinite;
@@ -108,6 +122,7 @@ body {
 }
 
 @keyframes gradientAnimation {
+    /* looping animation for gradient background */
     0% {
         background-position: 0% 50%;
     }
@@ -130,11 +145,13 @@ h2,
 }
 
 * {
+    /* universal reset for all elements */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* -------------------- varying view dimension based on media  -------------------- */
 /* Tablet (768px) */
 @media screen and (max-width: 768px) {
 
@@ -177,8 +194,9 @@ h2,
     }
 
 }
-
+/* -------------------- contact us floating button -------------------- */
 #contact-us-button {
+    /* floating contact button in bottom-left corner */
     position: fixed;
     bottom: 10px;
     left: 10px;
@@ -196,6 +214,7 @@ h2,
 }
 
 #contact-us-button:hover {
+    /* hover effect of the contact us button  */
     cursor: pointer;
     transform: scale(1.1);
     background-color: white;
@@ -203,13 +222,15 @@ h2,
 }
 
 #contact-us-button.no-hover:hover {
+    /* non-interactive version of the button */
     transform: none;
     background-color: white;
     color: #2D0B48;
     cursor: default;
 }
-
+/* -------------------- form input styles used in pop ups -------------------- */
 .form-row {
+    /* form rows margins  */
     margin-bottom: 10px;
     padding-top: 0.5rem;
 }
@@ -217,6 +238,7 @@ h2,
 .form-input,
 textarea,
 select {
+    /* shared styling for input, textarea and select fields */
     display: block;
     width: 100%;
     font-family: "Encode Sans Semi Condensed", sans-serif;
@@ -230,11 +252,13 @@ select {
 }
 
 .form-error {
+    /* form error styling  */
     color: red;
 }
 
 
 #send-email {
+    /* general styling for send email button  */
     color: white;
     background-color: #2D0B48;
     font-size: 16px;
@@ -247,12 +271,14 @@ select {
 }
 
 #send-email:hover {
+    /* hover effect for send email button */
     cursor: pointer;
     transform: scale(1.1);
     background-color: #69329C;
 }
 
 #close-popup {
+    /* styling for the close pop up */
     background-color: #ffffff;
     color: #000000;
     padding: 8px 15px;
@@ -269,17 +295,18 @@ select {
 }
 
 #close-popup:hover {
+    /* hover effect for the close button pop up */
     background-color: #ec0808;
     color: #ffffff;
 }
 
 #popup-form-container {
+    /* general styling for the pop up form container */
     position: fixed;
     bottom: 0;
     left: 10px;
     width: auto;
     height: auto;
-    background-color: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -288,6 +315,7 @@ select {
 }
 
 @keyframes popup {
+    /* animation for the pop up form */
     0% {
         transform: translateY(100%);
         visibility: visible;
@@ -299,6 +327,7 @@ select {
 }
 
 #popup-form-container form {
+    /* general styling for the form aspect of the pop up form container */
     background-color: #fffffff5;
     padding: 20px;
     border-radius: 5px;
@@ -310,6 +339,7 @@ select {
 
 
 #contact-form-message {
+    /* general styling for the contact form message  */
     font-family: "Encode Sans Semi Condensed", sans-serif;
     min-height: 100px;
     min-width: 200px;

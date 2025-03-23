@@ -1,25 +1,29 @@
 #title {
+    /* title styling for event page */
     color: white;
     font-size: 48px;
     font-weight: 700;
 }
-
+/* -------------------- general Layout -------------------- */
 #content {
+    /* container holding event details and map */
     display: flex;
     color: white;
     justify-content: space-between;
 }
 
 #details {
+    /* left-side block for event info */
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-right: 2rem;
 }
 
 img {
+    /* optional image styling */
     max-width: 30vw;
 }
-
+/* -------------------- event details -------------------- */
 .detail-group {
     display: flex;
     align-items: center;
@@ -27,14 +31,17 @@ img {
 }
 
 #details .detail {
+    /* emphasized values */
     font-weight: 700;
 }
 
 .detail-label {
+    /* labels beside each detail */
     margin-right: 16px;
 }
-
+/* -------------------- Buttons (Attend, Login, Back) -------------------- */
 #attend-button {
+    /* general styling for attend button */
     color: white;
     background-color: #2D0B48;
     font-size: 24px;
@@ -50,6 +57,7 @@ img {
 }
 
 #attend-button:hover {
+    /* hover effect for attend button */
     cursor: pointer;
     transform: scale(1.1);
     background-color: white;
@@ -57,10 +65,12 @@ img {
 }
 
 #attend {
+    /* container for button alignment  */
     text-align: center;
 }
 
 #back-button {
+    /* general styling for back button */
     color: white;
     background-color: #2D0B48;
     font-size: 18px;
@@ -76,6 +86,7 @@ img {
 }
 
 #back-button:hover {
+    /* hover effect for the back button */
     cursor: pointer;
     transform: scale(1.1);
     background-color: white;
@@ -83,6 +94,7 @@ img {
 }
 
 #log-in {
+    /* general styling for log in  button */
     color: white;
     background-color: #2D0B48;
     font-size: 24px;
@@ -99,19 +111,20 @@ img {
 }
 
 #log-in:hover {
+    /* hover effect for the login button */
     cursor: pointer;
     transform: scale(1.1);
     background-color: white;
     color: #2D0B48;
 }
-
+/* -------------------- Google Map Styling -------------------- */
 #map {
     width: 50%;
     height: 400px;
     margin-top: 20px;
     border-radius: 10px;
 }
-
+/* -------------------- Responsive Design -------------------- */
 @media screen and (max-width: 768px) {
     #content {
         flex-direction: column;

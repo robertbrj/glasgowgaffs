@@ -1,3 +1,4 @@
+/* -------------------- Hero Section -------------------- */
 #main {
     display: flex;
     justify-content: space-between;
@@ -6,18 +7,21 @@
 }
 
 #title {
+    /* title styling for index page */
     color: white;
     font-size: 48px;
     font-weight: 700;
 }
 
+/* -------------------- image styling -------------------- */
 img {
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     max-width: 25vw;
 }
-
+/* -------------------- about section -------------------- */
 #about-text {
+    /* general styling for about text */
     color: white;
     font-size: 16px;
     padding-top: 4rem;
@@ -25,16 +29,17 @@ img {
 }
 
 #about-section {
+    /* general styling for about section */
     text-align: center;
     padding-left: 2rem;
     padding-right: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    text-align: center;
 }
 
 #see-events {
+    /* general styling for see events button */
     display: block;
     font-family: 'Saira Condensed', sans-serif;
     font-size: 24px;
@@ -52,13 +57,15 @@ img {
 }
 
 #see-events:hover {
+    /* hover effect for the see events button */
     cursor: pointer;
     transform: scale(1.1);
     background-color: white;
     color: #2D0B48;
 }
-
+/* -------------------- greeting & responsive image control -------------------- */
 #greeting {
+    /* general styling greeting message  */
     color: white;
     font-size: 30px;
     font-weight: 700;
@@ -67,7 +74,7 @@ img {
 #clyderesponsiveimg {
     display: none;
 }
-
+/* -------------------- responsive background -------------------- */
 @media screen and (max-width: 780px) {
 
     #georgesqimg,
@@ -76,6 +83,7 @@ img {
     }
 
     body {
+        /* general styling for body */
         background-image: url("../images/backgroundrelative.png");
         background-size: cover;
         background-position: center center;
