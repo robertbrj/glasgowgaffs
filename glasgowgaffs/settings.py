@@ -25,7 +25,8 @@ SECRET_KEY = '!=-%@pdp#o(5(6q&k*hob3szyn00n3@(5xoitu^v!@&3lw944p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Robbrj.pythonanywhere.com']
+ALLOWED_HOSTS = ['Robbrj.pythonanywhere.com',
+                 '127.0.0.1', 'localhost']
 
 
 
