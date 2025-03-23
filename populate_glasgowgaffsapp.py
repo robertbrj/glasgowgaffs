@@ -8,6 +8,14 @@ django.setup()
 from glasgowgaffsapp.models import Event, Location
 from django.contrib.auth.models import User
 
+"""
+    Populates the database with sample of locations and events
+
+    - locations are pre-filled for use when a user chooses to create their own events
+    - events are pre-generated so users can sign up for available ones.
+
+    @return: None
+    """
 def populate():
     locations = [
     {'name': 'Firhill Court', 'address': '150 Firhill Road, Glasgow, G20 7BB'},
