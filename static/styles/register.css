@@ -82,3 +82,11 @@ body {
     transform: scale(1.1);
     color: #2D0B48;
 }
+
+/* -------------------- login error message -------------------- */
+.login-error {
+    color: #FF0000;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}

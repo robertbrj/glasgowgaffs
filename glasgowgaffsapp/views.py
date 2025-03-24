@@ -77,6 +77,7 @@ def user_login(request):
     """
         handles user login
         redirects to homepage if credentials are valid
+        displays error only after a failed post attempt and reloads page
     """
     if request.user.is_authenticated:
         return redirect(reverse('glasgowgaffsapp:index'))
@@ -94,11 +95,12 @@ def user_login(request):
             else:
                 return HttpResponse('Your GlasgowGaffs account is disabled.')
 
-        else:
-            return HttpResponse("Invalid login details supplied.")
+        return render(request, 'glasgowgaffsapp/login.html', {
 
-    else:
-        return render(request, 'glasgowgaffsapp/login.html')
+            'error_message': 'Invalid login credentials.'
+        })
+
+    return render(request, 'glasgowgaffsapp/login.html')
 
 
 @login_required
@@ -180,3 +182,4 @@ def toggle_attendance(request, event_id):
     else:
         event.attendees.add(request.user)
     return redirect('glasgowgaffsapp:event', event_id=event.id)
+

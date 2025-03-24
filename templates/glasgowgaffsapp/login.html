@@ -10,6 +10,9 @@
     {% csrf_token %}
     <h1 id="title">Log In</h1>
 
+     {% if error_message %}
+         <p class="login-error">{{ error_message }}</p>
+     {% endif %}
     <!-- username field -->
     <div class="form-group">
         <input placeholder="Username" type="text" name="username" />
