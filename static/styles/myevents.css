@@ -6,6 +6,7 @@
     text-align: left;
     display: block;
 }
+
 /* -------------------- toggle slider base -------------------- */
 /* container for iOS-style toggle switch */
 .toggle_wrapper {
@@ -16,6 +17,7 @@
     gap: 5px;
     text-align: left;
 }
+
 /* -------------------- toggle switch styling -------------------- */
 .toggle-container {
     /* switch container width + flex centering */
@@ -59,13 +61,14 @@
 
 .toggle-container input:checked+.toggle-label {
     /* change slider background when toggled */
-    background-color: #34c759;
+    background-color: #2D0B48;
 }
 
 .toggle-container input:checked+.toggle-label::before {
     /* move slider knob when toggled */
     transform: translate(25px, -50%);
 }
+
 /* -------------------- toggle labels -------------------- */
 #created_title,
 #attending_title,
